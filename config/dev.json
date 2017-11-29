@@ -14,8 +14,8 @@
   },
   "aws": {
     "s3" :{
-      "accessKeyId": 12345,
-      "secretAccessKey": 12345
+      "accessKeyId": "123",
+      "secretAccessKey": "123"
     }
   },
   "roles": ["Admin"],

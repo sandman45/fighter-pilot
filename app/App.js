@@ -2,14 +2,13 @@ import React from 'react';
 import styles from './App.css';
 
 import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-import Content from './components/Content/Content';
+import Content from './components/Content/Default/Content';
+import Profile from './components/Content/Profile/Profile';
 
 const App = () => (
   <div className={styles.app}>
     <Header />
-    <Content />
-    <Footer />
+    <Profile />
   </div>
     );
 

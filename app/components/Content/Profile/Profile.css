@@ -1,0 +1,58 @@
+.profile {
+    justify-content: space-around;
+    color: #999999;
+}
+
+.title {
+    color: #111111;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 6px;
+}
+
+.mainSection {
+    display: flex;
+    flex-direction: row;
+}
+.sideSection {
+    flex: 1;
+    margin: 10px;
+    background-color: #7f7f7f;
+    border-radius: 5px;
+}
+
+.otherStuff {
+    color: #111111;
+    padding: 12px;
+    height: auto;
+    width: auto;
+}
+
+
+.bioSection {
+    flex: 4;
+    margin: 10px;
+    background-color: lightsteelblue;
+    border-radius: 5px;
+}
+
+.bio {
+    color: #111111;
+    padding: 12px;
+    height: auto;
+    text-align: justify;
+}
+
+.awards {
+    justify-content: space-around;
+    background-color: #004444;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #111111;
+}

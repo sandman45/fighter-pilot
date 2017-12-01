@@ -5,13 +5,11 @@ const tagsRoles = {
     Admin: {
         POST: [
             routes.login,
+            routes.profile,
         ],
         GET: [
             routes.home,
-            routes.test,
-            routes.test2,
-            routes.test3,
-            routes.test4,
+            routes.searchProfile,
         ],
     },
 };

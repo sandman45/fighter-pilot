@@ -2,15 +2,12 @@
 const ROUTES = {
     // POST
     login: '/login',
+    profile: '/profile',
     // GET
     home: '/',
-    test: '/test/:id',
-    test2: '/test2',
-    test3: '/test3',
-    test4: '/test4',
-    error: '/error',
+    searchProfile: '/profile/:key/:value',
     // PUT
-
+    updateProfile: '/profile/:profileId',
     //PATCH
 
     //DEL

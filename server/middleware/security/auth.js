@@ -60,7 +60,8 @@ function authenticateToken(req) {
             } else {
                 if (hasScheme !== 0) {
                     global.logger.warn('Missing Bearer Authentication Scheme');
-                    const errorResponse = new errorTypes.UnauthorizedResponse(112, 'Missing Bearer Authentication Scheme');
+                    const errorResponse = new errorTypes.UnauthorizedResponse(112,
+                        'Missing Bearer Authentication Scheme');
                     reject(errorResponse);
                 }
                 global.logger.warn('There is no token');
@@ -117,19 +118,14 @@ function endpointAuthorization(req) {
     return new Promise((resolve, reject) => {
         global.logger.info('invoked');
 
-        const path = req.path;
         const rest = req.method;
 
         const authorizedEndpointRoles = [];
 
         async.map(req.authInfo.roles, (role, callback) => {
             if (acl[role] && acl[role][rest]) {
-                if (acl[role][rest].indexOf(path) > -1) {
-                    authorizedEndpointRoles.push(role);
-                    callback(null, true);
-                } else {
-                    callback(null, false);
-                }
+                authorizedEndpointRoles.push(role);
+                callback(null, true);
             } else {
                 callback(null, false);
             }

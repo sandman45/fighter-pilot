@@ -4,12 +4,11 @@
  * @param moreInfo
  * @constructor
  */
-function BadRequestResponse(errorCode, moreInfo) {
+function BadRequestResponse(moreInfo) {
     return {
         error: {
-            code: errorCode,
             http_response_code: 400,
-            message: '',
+            message: 'The server cannot or will not process the request due to an apparent client error',
             moreInfo,
         },
     };

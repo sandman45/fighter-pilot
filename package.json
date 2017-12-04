@@ -7,7 +7,6 @@
     "test": "test"
   },
   "dependencies": {
-    "@clip/node.response": "https://s3.amazonaws.com/clip-npm-modules/clip-node.response-2.0.2.tar.gz",
     "async": "^2.4.1",
     "aws-sdk": "^2.67.0",
     "babel-core": "^6.26.0",

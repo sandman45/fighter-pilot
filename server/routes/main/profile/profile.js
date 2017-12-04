@@ -1,15 +1,21 @@
+const { check } = require('express-validator/check');
 
-const logger = global.logger;
-
+const validate = require('../../../middleware/validator/validate');
 const cuid = require('../../../utilities/util').cuid;
 const auth = require('../../../middleware/security/auth');
 const apiRoutes = require('../../routes');
-const errors = require('../../../middleware/response/lib/errorIndex');
-const S3 = require('../../../services/aws/aws');
+// const errors = require('../../../middleware/response/lib/errorIndex');
 const Dynamo = require('../../../services/aws/aws');
 
+// const S3 = require('../../../services/aws/aws');
+
 module.exports = (app) => {
-    app.get(apiRoutes.searchProfile, (req, res, next) => {
+    const validateSearchProfile = [
+        check('key').exists().withMessage('key is a required attribute'),
+        check('value').exists().withMessage('value is required'),
+    ];
+
+    app.get(apiRoutes.searchProfile, auth.authCheck, validateSearchProfile, validate, (req, res, next) => {
         const dynamo = Dynamo.getDynamo();
         const params = {
             TableName: 'Profile',
@@ -18,14 +24,22 @@ module.exports = (app) => {
         params.Key[req.params.key] = req.params.value;
         dynamo.get(params, (err, data) => {
             if (err) {
-                res.status(err.statusCode ? err.statusCode : 500).send(err);
+                next(err);
             } else {
-                res.send(data);
+                next(data);
             }
         });
     });
 
-    app.post(apiRoutes.profile, (req, res, next) => {
+    const validateProfile = [
+        check('name').exists().withMessage('name is a required attribute'),
+        check('serviceBranch').exists().withMessage('serviceBranch is required'),
+        check('awards').exists().withMessage('awards is required'),
+        check('ranks').exists().withMessage('ranks is required'),
+        check('photos').exists().withMessage('photos is required'),
+    ];
+
+    app.post(apiRoutes.profile, auth.authCheck, validateProfile, validate, (req, res, next) => {
         const dynamo = Dynamo.getDynamo();
         const params = {
             TableName: 'Profile',
@@ -34,14 +48,18 @@ module.exports = (app) => {
         params.Item.ProfileId = cuid();
         dynamo.put(params, (err, data) => {
             if (err) {
-                res.status(err.statusCode ? err.statusCode : 500).send(err);
+                next(err);
             } else {
-                res.send(data);
+                next(data);
             }
         });
     });
 
-    app.put(apiRoutes.updateProfile, (req, res, next) => {
+    const validateUpdateProfile = [
+        check('profileId').exists().withMessage('profileId is a required attribute'),
+    ];
+
+    app.put(apiRoutes.updateProfile, auth.authCheck, validateUpdateProfile, validate, (req, res, next) => {
         const dynamo = Dynamo.getDynamo();
         const params = {
             TableName: 'Profile',
@@ -56,9 +74,9 @@ module.exports = (app) => {
         };
         dynamo.update(params, (err, data) => {
             if (err) {
-                res.status(err.statusCode ? err.statusCode : 500).send(err);
+                next(err);
             } else {
-                res.send(data);
+                next(data);
             }
         });
     });

@@ -11,6 +11,9 @@ const tagsRoles = {
             routes.home,
             routes.searchProfile,
         ],
+        PUT: [
+            routes.updateProfile,
+        ],
     },
 };
 

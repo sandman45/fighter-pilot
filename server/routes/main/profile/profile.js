@@ -31,6 +31,21 @@ module.exports = (app) => {
         });
     });
 
+    app.get(apiRoutes.getProfiles, auth.authCheck, (req, res, next) => {
+        const dynamo = Dynamo.getDynamo();
+        const params = {
+            TableName: 'Profile',
+        };
+
+        dynamo.scan(params, (err, data) => {
+            if (err) {
+                next(err);
+            } else {
+                next(data.Items);
+            }
+        });
+    });
+
     const validateProfile = [
         check('name').exists().withMessage('name is a required attribute'),
         check('serviceBranch').exists().withMessage('serviceBranch is required'),

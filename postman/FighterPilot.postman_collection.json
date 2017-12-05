@@ -1,0 +1,162 @@
+{
+	"info": {
+		"name": "FighterPilot",
+		"_postman_id": "87e0e57b-43af-241a-25db-86f4182e9992",
+		"description": "this is api testing for FighterPilot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"description": "",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "test@test.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "test",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
+							]
+						},
+						"description": " - login - "
+					},
+					"response": [
+					]
+				}
+			]
+		},
+		{
+			"name": "profile",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{JWT}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": {\n\t\t\"first\": \"Milton\",\n\t\t\"middle\": \"W\",\n\t\t\"last\": \"Sanders\"\n\t},\n\t\"serviceBranch\": [\n\t\t\"Army Air Force\",\n\t\t\"Air Force\"\n\t],\n\t\"awards\": [],\n\t\"ranks\": [],\n\t\"photos\": []\n}"
+				},
+				"url": {
+					"raw": "{{url}}/profile",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"profile"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "profile",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{JWT}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": {\n\t\t\"first\": \"Milton\",\n\t\t\"middle\": \"W\",\n\t\t\"last\": \"Sanders\"\n\t},\n\t\"serviceBranch\": [\n\t\t\"Army Air Force\",\n\t\t\"Air Force\"\n\t],\n\t\"awards\": [],\n\t\"ranks\": [],\n\t\"photos\": []\n}"
+				},
+				"url": {
+					"raw": "{{url}}/profile/cjan1g6eu00001dyj71fri9wi",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"profile",
+						"cjan1g6eu00001dyj71fri9wi"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "profile/ProfileId/:id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{JWT}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/profile/ProfileId/cjan1g6eu00001dyj71fri9wi",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"profile",
+						"ProfileId",
+						"cjan1g6eu00001dyj71fri9wi"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "profile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{JWT}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/profile/ProfileId/cjan1g6eu00001dyj71fri9wi",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"profile",
+						"ProfileId",
+						"cjan1g6eu00001dyj71fri9wi"
+					]
+				},
+				"description": "get all profiles"
+			},
+			"response": []
+		}
+	]
+}

@@ -6,6 +6,7 @@ const ROUTES = {
     // GET
     home: '/',
     searchProfile: '/profile/:key/:value',
+    getProfiles: '/profile',
     // PUT
     updateProfile: '/profile/:profileId',
     //PATCH

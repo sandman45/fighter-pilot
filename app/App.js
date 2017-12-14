@@ -7,8 +7,9 @@ import Profile from './components/Content/Profile/Profile';
 
 const App = () => (
   <div className={styles.app}>
-    <Header />
-    <Profile />
+    {/*<Header />*/}
+    {/*<Profile />*/}
+    <Content />
   </div>
     );
 

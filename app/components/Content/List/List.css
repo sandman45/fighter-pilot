@@ -1,0 +1,18 @@
+.listContainer{
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+    padding: 12px;
+    background-color: #0074D9;
+}
+
+.item{
+    display: flex;
+    flex: 1;
+    border-radius: 6px;
+    padding: 12px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    background-color: #880000;
+    cursor: pointer;
+}

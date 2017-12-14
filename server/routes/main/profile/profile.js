@@ -22,9 +22,9 @@ module.exports = (app) => {
             Key: {},
         };
         params.Key[req.params.key] = req.params.value;
-        dynamo.get(params, (err, data) => {
-            if (err) {
-                next(err);
+        dynamo.get(params, (error, data) => {
+            if (error) {
+                next({ error });
             } else {
                 next(data);
             }
@@ -37,9 +37,9 @@ module.exports = (app) => {
             TableName: 'Profile',
         };
 
-        dynamo.scan(params, (err, data) => {
-            if (err) {
-                next(err);
+        dynamo.scan(params, (error, data) => {
+            if (error) {
+                next({ error });
             } else {
                 next(data.Items);
             }
@@ -61,9 +61,9 @@ module.exports = (app) => {
             Item: req.body,
         };
         params.Item.ProfileId = cuid();
-        dynamo.put(params, (err, data) => {
-            if (err) {
-                next(err);
+        dynamo.put(params, (error, data) => {
+            if (error) {
+                next({ error });
             } else {
                 next(data);
             }
@@ -72,24 +72,28 @@ module.exports = (app) => {
 
     const validateUpdateProfile = [
         check('profileId').exists().withMessage('profileId is a required attribute'),
+        check('tableName').exists().withMessage('tableName is a required attribute'),
+        check('expression').exists().withMessage('expression is a required attribute'),
+        check('keys').exists().withMessage('keys is a required attribute'),
+        check('values').exists().withMessage('values is a required attribute'),
     ];
 
     app.put(apiRoutes.updateProfile, auth.authCheck, validateUpdateProfile, validate, (req, res, next) => {
         const dynamo = Dynamo.getDynamo();
         const params = {
-            TableName: 'Profile',
+            TableName: req.body.tableName,
             Key: {
                 ProfileId: req.params.profileId,
             },
-            UpdateExpression: 'set ranks = :r',
-            ExpressionAttributeValues: {
-                ':r': ['01', '02'],
-            },
+            UpdateExpression: req.body.expression,
+            ExpressionAttributeNames: req.body.keys,
+            ExpressionAttributeValues: req.body.values,
             ReturnValues: 'UPDATED_NEW',
         };
-        dynamo.update(params, (err, data) => {
-            if (err) {
-                next(err);
+        global.logger.warn(JSON.stringify(params));
+        dynamo.update(params, (error, data) => {
+            if (error) {
+                next({ error });
             } else {
                 next(data);
             }

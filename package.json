@@ -64,17 +64,18 @@
     "test": "mocha --recursive",
     "cover": "nyc --reporter=lcov --reporter=text-lcov npm test",
     "dev": "webpack-dev-server --hot --mode:development",
-    "build": "webpack --mode production",
+    "build-prod": "webpack --mode production",
+    "build-dev": "webpack --mode development",
     "lint": "eslint server/**"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:sandman45/node-starter-project.git"
+    "url": "git@github.com:sandman45/fighter-pilot.git"
   },
   "author": "Matthew W. Sanders",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sandman45/node-starter-project/issues"
+    "url": "https://github.com/sandman45/fighter-pilot/issues"
   },
-  "homepage": "https://github.com/sandman45/node-starter-project/blob/master/README.md"
+  "homepage": "https://github.com/sandman45/fighter-pilot/README.md"
 }

@@ -1,18 +1,19 @@
+const path = require('path');
 
 const config = {
-    entry: './app/Main.js',
+    entry: ['./app/Main.js'],
 
     output: {
-        path: '/dist/',
-        filename: 'index.js',
+        path: path.resolve(__dirname, 'build/'),
+        filename: 'build.js',
     },
-    mode: 'development',
-    devServer: {
-        inline: true,
-        port: 3000,
-        hot: true,
-        contentBase: './app',
-    },
+    // mode: 'development',
+    // devServer: {
+    //     inline: true,
+    //     port: 3000,
+    //     hot: true,
+    //     contentBase: './app',
+    // },
     resolve: {
         modules: [__dirname, 'app/components', 'node_modules'],
         alias: {

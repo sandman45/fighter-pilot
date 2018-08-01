@@ -9,6 +9,8 @@ const helmet = require('helmet');
 
 const config = require('config');
 const middleware = require('./server/middleware');
+
+const Response = middleware.response;
 const validator = require('express-validator');
 
 global.logger = winston;
@@ -28,7 +30,12 @@ require('./server/routes/index')(app);
 // init
 require('./server/init/initialize');
 
-app.use(middleware.response);
+const response = new Response({
+    useLogger: true,
+    logger,
+});
+
+app.use(response.responseHandler);
 
 app.listen(config.port, (err) => {
     if (err) {

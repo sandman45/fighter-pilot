@@ -9,7 +9,7 @@ module.exports = (app) => {
             next(`success ${results}`);
         }).catch((error) => {
             logger.error(error.message);
-            next(error.error);
+            next({ error: error.error });
         });
     });
 };

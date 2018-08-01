@@ -43,7 +43,7 @@ module.exports.userAuth = (username, pass) =>
     mysql.executeQuery(config.mysql.database.database, sql, { email: username }).then((results) => {
         logger.info(`${username}: ${pass}`);
         logger.info(results);
-        if (pass === results[0].password_hash) {
+        if (results.length > 0 && pass === results[0].password_hash) {
             return module.exports.createJWTAccessToken(username, ['Admin']);
         }
         const err = unauthorized(1, 'Unauthorized');

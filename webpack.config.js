@@ -3,10 +3,10 @@ const config = {
     entry: './app/Main.js',
 
     output: {
-        path: '/app/',
+        path: '/dist/',
         filename: 'index.js',
     },
-
+    mode: 'development',
     devServer: {
         inline: true,
         port: 3000,
@@ -21,7 +21,7 @@ const config = {
         extensions: ['*', '.js'],
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js?$/,
                 exclude: /node_modules/,

@@ -62,7 +62,8 @@
   "scripts": {
     "test": "mocha --recursive",
     "cover": "nyc --reporter=lcov --reporter=text-lcov npm test",
-    "start": "webpack-dev-server --hot",
+    "dev": "webpack-dev-server --hot",
+    "prod": "set NODE_ENV=production&& webpack -p --progress --hot",
     "lint": "eslint server/**"
   },
   "repository": {

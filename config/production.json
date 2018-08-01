@@ -1,0 +1,27 @@
+{
+  "cryptoKey": "1234567891011121",
+  "host": "http://127.0.0.1",
+  "port": 3000,
+  "mysql": {
+    "database": {
+      "host": "66.147.240.97",
+      "user": "lightsan_test",
+      "password": "T7QJ;.Zdsw.I",
+      "database": "lightsan_test_database",
+      "port": 3306,
+      "connectionLimit": 6
+    }
+  },
+  "aws": {
+    "s3" :{
+      "accessKeyId": "123",
+      "secretAccessKey": "123"
+    }
+  },
+  "roles": ["Admin"],
+  "role_prefix": "Admin_",
+  "jwt": {
+    "algorithm": "HS256",
+    "expiresIn": "2 days"
+  }
+}

@@ -4,7 +4,7 @@ const config = {
     entry: ['./app/Main.js'],
 
     output: {
-        path: path.resolve(__dirname, 'build/'),
+        path: path.resolve(__dirname, 'app/'),
         filename: 'build.js',
     },
     // mode: 'development',

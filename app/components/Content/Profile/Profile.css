@@ -34,6 +34,13 @@
     width: auto;
 }
 
+.backButton {
+    padding: 12px;
+    border-radius: 6px;
+    float: right;
+    cursor: pointer;
+    background-color: #006666;
+}
 
 .bioSection {
     flex: 4;

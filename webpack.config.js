@@ -7,13 +7,13 @@ const config = {
         path: path.resolve(__dirname, 'app/'),
         filename: 'build.js',
     },
-    // mode: 'development',
-    // devServer: {
-    //     inline: true,
-    //     port: 3000,
-    //     hot: true,
-    //     contentBase: './app',
-    // },
+    mode: 'development',
+    devServer: {
+        inline: true,
+        port: 3000,
+        hot: true,
+        contentBase: './app',
+    },
     resolve: {
         modules: [__dirname, 'app/components', 'node_modules'],
         alias: {

@@ -5,7 +5,11 @@ import Tooltip from 'react-bootstrap/lib/Tooltip';
 import Button from 'react-bootstrap/lib/Button';
 import Modal from 'react-bootstrap/lib/Modal';
 import OverlayTrigger from 'react-bootstrap/lib/OverlayTrigger';
-
+import Form from 'react-bootstrap/lib/Form';
+import FormControl from 'react-bootstrap/lib/FormControl';
+import FormGroup from 'react-bootstrap/lib/FormGroup';
+import Col from 'react-bootstrap/lib/Col';
+import Checkbox from 'react-bootstrap/lib/Checkbox';
 
 export default class Login extends React.Component {
     constructor(props) {
@@ -33,6 +37,9 @@ export default class Login extends React.Component {
                 very popover. such engagement
             </Popover>
         );
+        const ControlLabel = {
+            color: 'red'
+        };
 
         const tooltip = <Tooltip id="modal-tooltip">wow.</Tooltip>;
 
@@ -44,80 +51,40 @@ export default class Login extends React.Component {
 
                 <Modal show={this.state.show} onHide={this.handleClose}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Modal heading</Modal.Title>
+                        <Modal.Title>Login</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <h4>Text in a modal</h4>
-                        <p>
-                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                        </p>
+                        <Form horizontal>
+                            <FormGroup controlId="formHorizontalEmail">
+                                <Col sm={2}>
+                                    Email
+                                </Col>
+                                <Col sm={10}>
+                                    <FormControl type="email" placeholder="Email" />
+                                </Col>
+                            </FormGroup>
 
-                        <h4>Popover in a modal</h4>
-                        <p>
-                            there is a{' '}
-                            <OverlayTrigger overlay={popover}>
-                                <a href="#popover">popover</a>
-                            </OverlayTrigger>{' '}
-                            here
-                        </p>
+                            <FormGroup controlId="formHorizontalPassword">
+                                <Col sm={2}>
+                                    Password
+                                </Col>
+                                <Col sm={10}>
+                                    <FormControl type="password" placeholder="Password" />
+                                </Col>
+                            </FormGroup>
 
-                        <h4>Tooltips in a modal</h4>
-                        <p>
-                            there is a{' '}
-                            <OverlayTrigger overlay={tooltip}>
-                                <a href="#tooltip">tooltip</a>
-                            </OverlayTrigger>{' '}
-                            here
-                        </p>
+                            <FormGroup>
+                                <Col smOffset={2} sm={10}>
+                                    <Checkbox>Remember me</Checkbox>
+                                </Col>
+                            </FormGroup>
 
-                        <hr />
-
-                        <h4>Overflowing text to show scroll behavior</h4>
-                        <p>
-                            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-                            ac consectetur ac, vestibulum at eros.
-                        </p>
-                        <p>
-                            Praesent commodo cursus magna, vel scelerisque nisl consectetur
-                            et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-                            auctor.
-                        </p>
-                        <p>
-                            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo
-                            cursus magna, vel scelerisque nisl consectetur et. Donec sed odio
-                            dui. Donec ullamcorper nulla non metus auctor fringilla.
-                        </p>
-                        <p>
-                            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-                            ac consectetur ac, vestibulum at eros.
-                        </p>
-                        <p>
-                            Praesent commodo cursus magna, vel scelerisque nisl consectetur
-                            et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-                            auctor.
-                        </p>
-                        <p>
-                            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo
-                            cursus magna, vel scelerisque nisl consectetur et. Donec sed odio
-                            dui. Donec ullamcorper nulla non metus auctor fringilla.
-                        </p>
-                        <p>
-                            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-                            ac consectetur ac, vestibulum at eros.
-                        </p>
-                        <p>
-                            Praesent commodo cursus magna, vel scelerisque nisl consectetur
-                            et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-                            auctor.
-                        </p>
-                        <p>
-                            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo
-                            cursus magna, vel scelerisque nisl consectetur et. Donec sed odio
-                            dui. Donec ullamcorper nulla non metus auctor fringilla.
-                        </p>
+                            <FormGroup>
+                                <Col smOffset={2} sm={10}>
+                                    <Button type="submit">Sign in</Button>
+                                </Col>
+                            </FormGroup>
+                        </Form>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button onClick={this.handleClose}>Close</Button>

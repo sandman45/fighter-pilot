@@ -4,7 +4,6 @@ import styles from './App.css';
 import Header from './components/Header/Header';
 import Content from './components/Content/Default/Content';
 import Profile from './components/Content/Profile/Profile';
-import Login from './components/Login/Login';
 
 const components = {
     Content: <Content />,
@@ -68,7 +67,6 @@ export default class App extends React.Component {
         return (
           <div>
             <Header />
-            <Login style={{float: 'right', padding: '12px'}}/>
             { this.renderComponent() }
           </div>
         );

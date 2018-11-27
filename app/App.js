@@ -4,19 +4,23 @@ import styles from './App.css';
 import Header from './components/Header/Header';
 import Content from './components/Content/Default/Content';
 import Profile from './components/Content/Profile/Profile';
+import Login from './components/Login/Login';
 
 const components = {
     Content: <Content />,
     Profile: <Profile />,
 };
 
-
 export default class App extends React.Component {
     constructor(props) {
         super(props);
 
+        this.handleShow = this.handleShow.bind(this);
+        this.handleClose = this.handleClose.bind(this);
+
         this.state = {
             view: components.Content,
+            show: false,
         };
     }
 
@@ -51,10 +55,20 @@ export default class App extends React.Component {
         }
     }
 
+    handleClose() {
+        this.setState({ show: false });
+    }
+
+    handleShow() {
+        this.setState({ show: true });
+    }
+
     render() {
+
         return (
           <div>
             <Header />
+            <Login style={{float: 'right', padding: '12px'}}/>
             { this.renderComponent() }
           </div>
         );

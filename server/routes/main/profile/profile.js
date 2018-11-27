@@ -4,7 +4,6 @@ const validate = require('../../../middleware/validator/validate');
 const cuid = require('../../../utilities/util').cuid;
 const auth = require('../../../middleware/security/auth');
 const apiRoutes = require('../../routes');
-// const errors = require('../../../middleware/response/lib/errorIndex');
 const Dynamo = require('../../../services/aws/aws');
 
 // const S3 = require('../../../services/aws/aws');

@@ -9,12 +9,16 @@ export default class UserList extends React.Component {
             person: [
                 {
                     key: 0,
-                    name: { first: 'test', last: 'test' },
-                    email: 'test@test.com' },
+                    name: {first: 'Milton', middle: 'Wesley', last: 'Sanders'},
+                    email: 'msanders@gmail.com',
+                    phone: '801-555-5555',
+                },
                 {
                     key: 1,
-                    name: { first: 'test2', last: 'test2' },
-                    email: 'test2@test.com' },
+                    name: {first: 'Phillip', middle: 'Edward', last: 'Payne'},
+                    email: 'pepparis@gmail.com',
+                    phone: '801-555-5555',
+                },
             ],
             setValue: '',
         };
@@ -28,7 +32,7 @@ export default class UserList extends React.Component {
         const persons = this.state.person.map((item) => (
           <div key={item.key} value={item} className={styles.item} onClick={() => this.props.showComp(item)}>
             <h1>{ item.name.first }</h1>
-            <span>{ item.cell }, { item.email }</span>
+            <span>{ item.phone }, { item.email }</span>
           </div>
         ));
 

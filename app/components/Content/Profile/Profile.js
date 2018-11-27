@@ -9,7 +9,7 @@ export default class Profile extends React.Component {
     render() {
       return(
         <div className={styles.profile}>
-            <div className={styles.title}>Profile: Milton W. Sanders</div>
+            <div className={styles.title}>{this.props.item.name.first} {this.props.item.name.middle} {this.props.item.name.last}</div>
 
             <div className={styles.container}>
                 <div className={styles.mainSection}>

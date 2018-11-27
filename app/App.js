@@ -25,15 +25,14 @@ export default class App extends React.Component {
     }
 
     handleListClick(item) {
-        // event.preventDefault();
         // set the displayComponent
         console.log(item);
-        // alert(item.key);
         this.setState({
             view: 'Profile',
+            item: item,
         });
     }
-    
+
     handleViewSwitch(view) {
         console.log(view);
         this.setState({
@@ -46,7 +45,7 @@ export default class App extends React.Component {
         case 'Content':
             return <Content showComp={this.handleListClick.bind(this)} />;
         case 'Profile':
-            return <Profile switchView={this.handleViewSwitch.bind(this)} />;
+            return <Profile switchView={this.handleViewSwitch.bind(this)} item={this.state.item} />;
         default :
             return <Content showComp={this.handleListClick.bind(this)} />;
         }

@@ -59,10 +59,10 @@ You will add your different configurations in these files.  Add a stage.json or 
   "port": 3000,
   "mysql": {
     "database": {
-      "host": "66.147.240.97",
-      "user": "lightsan_test",
-      "password": "T7QJ;.Zdsw.I",
-      "database": "lightsan_test_database",
+      "host": "**",
+      "user": "**",
+      "password": "**",
+      "database": "**",
       "port": 3306,
       "connectionLimit": 6
     }
@@ -72,9 +72,7 @@ You will add your different configurations in these files.  Add a stage.json or 
         "accessKeyId": 12345,
         "secretAccessKey": 12345
       }
-    },
-  "roles": ["Admin"],
-  "role_prefix": "Admin_",
+    }, 
   "jwt": {
     "algorithm": "HS256",
     "expiresIn": "2 days"

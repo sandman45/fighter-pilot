@@ -18,8 +18,6 @@
       "secretAccessKey": 12345
     }
   },
-  "roles": ["ADMIN"],
-  "role_prefix": "ADMIN_",
   "jwt": {
     "algorithm": "HS256",
     "expiresIn": "2 days"
